@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DailyNews single-module research result",
+  "description": "Strict structured output for one researched DailyNews module.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "module": {
+      "type": "string",
+      "enum": ["research", "companies", "opensource", "markets"]
+    },
+    "topic": {
+      "type": ["string", "null"]
+    },
+    "search_queries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platforms_checked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "module": {
+            "type": "string",
+            "enum": ["research", "companies", "opensource", "markets"]
+          },
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string"
+          },
+          "event_time_basis": {
+            "type": "string",
+            "enum": [
+              "original_publication",
+              "paper_submission",
+              "official_announcement",
+              "release_published_at",
+              "repository_created_at",
+              "filing_published_at",
+              "market_as_of"
+            ]
+          },
+          "source_name": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "official",
+              "official_social",
+              "social",
+              "reputable_media"
+            ]
+          },
+          "is_primary_source": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "relevance": {
+            "type": "string"
+          },
+          "why_it_matters": {
+            "type": "string"
+          },
+          "publication_status": {
+            "type": "string",
+            "enum": [
+              "preprint",
+              "peer_reviewed",
+              "official_announcement",
+              "release",
+              "repository_activity",
+              "filing",
+              "market_data",
+              "news_report"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium"]
+          },
+          "corroborating_sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "source_type": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "official",
+                    "official_social",
+                    "social",
+                    "reputable_media"
+                  ]
+                }
+              },
+              "required": ["name", "url", "source_type"]
+            }
+          }
+        },
+        "required": [
+          "module",
+          "title",
+          "summary",
+          "published_at",
+          "event_time_basis",
+          "source_name",
+          "source_url",
+          "source_type",
+          "is_primary_source",
+          "evidence",
+          "relevance",
+          "why_it_matters",
+          "publication_status",
+          "confidence",
+          "corroborating_sources"
+        ]
+      }
+    }
+  },
+  "required": [
+    "module",
+    "topic",
+    "search_queries",
+    "platforms_checked",
+    "items"
+  ]
+}

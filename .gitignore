@@ -1,0 +1,41 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.pytest-tmp/
+.mypy_cache/
+.ruff_cache/
+
+# Packaging and test artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Runtime scratch files
+*.log
+*.tmp
+*.temp
+reports/*.tmp
+reports/*.temp
+
+operator.md
+reports/
